@@ -29,6 +29,8 @@ function printNewRandomInt() {
   displayResault.innerHTML = "";
   triedToAnswerFlag = 0;
   buttonCheckAnswer.disabled = false;
+
+  answerPowerOf.value = "";
 }
 
 answerPowerOf.addEventListener("keyup", function() {
