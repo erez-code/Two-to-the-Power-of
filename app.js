@@ -9,13 +9,16 @@ var randomTwoPowerOf;
 var triedToAnswerFlag = 0;
 var scoreCount = 0;
 var wrongAnswerCount = 0;
+var maxPowerOf = 20;
+
 printNewRandomInt();
 
 printButton.addEventListener("click", printNewRandomInt);
 
 function printNewRandomInt() {
   var baseTwo = 2;
-  randomPowerOf = getRndInteger(0, 10);
+
+  randomPowerOf = getRndInteger(0, maxPowerOf);
 
   randomTwoPowerOf = Math.pow(baseTwo, randomPowerOf);
 
@@ -51,8 +54,9 @@ buttonCheckAnswer.addEventListener("click", function() {
   if (triedToAnswerFlag == 0) {
     if (answerPowerOfValue === "") {
       displayResault.innerHTML = "Not enough input.";
-    } else if (answerPowerOfValue > 10 || answerPowerOfValue < 0) {
-      displayResault.innerHTML = "Insert a number between 0 and 10.";
+    } else if (answerPowerOfValue > maxPowerOf || answerPowerOfValue < 0) {
+      displayResault.innerHTML =
+        "Insert a number between 0 and " + maxPowerOf + ".";
     } else {
       //CHECK ANSWER
       var bin = randomTwoPowerOf.toString(2);
